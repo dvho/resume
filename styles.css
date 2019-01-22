@@ -22,6 +22,12 @@
     0% {top: -178px;}
     100% {top: -58px;}
 }
+@keyframes explode {
+    0% {transform: scale(.001);
+    opacity: 1;}
+    100% {transform: scale(1);
+    opacity: 1;}
+}
 
 .hair {
     position: relative;
@@ -308,4 +314,16 @@
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
     background-color: #fdca90;
+}
+
+#explosion{
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    box-shadow: 0 0 100px 35px #fdca90, inset 0 0 200px 0 #fdca90;
+    opacity: 0;
 }

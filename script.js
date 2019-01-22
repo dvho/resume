@@ -15,7 +15,7 @@ let y = 0;
 coord = (e) => {
     x = e.clientX;
     y = e.clientY;
-    console.log(`${x} -- ${y}`)
+
 };
 
 poof = () => {
@@ -24,6 +24,9 @@ poof = () => {
     rightEye.classList = ``;
     leftIris.style.visibility = `hidden`;
     rightIris.style.visibility = `hidden`;
+    explodeGuy.style.left = `${x - 100}px`;
+    explodeGuy.style.top = `${y -100}px`;
+    explodeGuy.style.animation = `explode .085s linear`;
 }
 
 document.addEventListener(`click`, coord);

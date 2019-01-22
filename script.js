@@ -15,7 +15,6 @@ let y = 0;
 coord = (e) => {
     x = e.clientX;
     y = e.clientY;
-
 };
 
 poof = () => {

@@ -327,3 +327,13 @@
     box-shadow: 0 0 100px 35px #fdca90, inset 0 0 200px 0 #fdca90;
     opacity: 0;
 }
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* Make the highlight color transparent, in case nothing else works */
+}

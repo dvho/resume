@@ -3,29 +3,43 @@ const leftIris = document.getElementById('left-iris');
 const rightIris = document.getElementById('right-iris');
 const leftEye = document.getElementById('left-eye');
 const rightEye = document.getElementById('right-eye');
+const explodeGuy = document.getElementById('explosion');
 let animationSwitch1 = 1; //Initialize animationSwitch1
 let animationSwitch2 = 1; //Initialize animationSwitch2
 let irisCount = 1; //Initialize irisCount
 let eyeCoefficient = 1; //Initialize eyeCoefficient
 let t = 0; //Initialize t for bothIrides clearTimeout
+let x = 0;
+let y = 0;
 
+coord = (e) => {
+    x = e.clientX;
+    y = e.clientY;
+    console.log(`${x} -- ${y}`)
+};
 
+poof = () => {
+    theGuy.style.visibility = `hidden`;
+    leftEye.classList = ``;
+    rightEye.classList = ``;
+    leftIris.style.visibility = `hidden`;
+    rightIris.style.visibility = `hidden`;
+}
 
-
+document.addEventListener(`click`, coord);
+document.addEventListener(`mousemove`, coord);
+theGuy.addEventListener(`click`, poof);
 
 (blinking = () => {
-
     let blinkRate = (Math.random() * 2000) + 200;
-    let timeClosed = (Math.random() * 180);
+    let timeClosed = (Math.random() * 120) + 20;
     leftEye.style.visibility = `hidden`;
     rightEye.style.visibility = `hidden`;
-
     setTimeout(() => {
         leftEye.style.visibility = `visible`;
         rightEye.style.visibility = `visible`;
     }, timeClosed);
     setTimeout(blinking, blinkRate);
-
 })();
 
 bothIrides = () => {
@@ -40,12 +54,12 @@ bothIrides = () => {
     leftIris.classList = `position-${irisPosition}`; //Set leftIris class.
     rightIris.classList = `position-${irisPosition}`;  //Set rightIris class.
     t = setTimeout(bothIrides, rate); //bothIrides calls itself at rate, is set to t so that guyPosition can clearTimeout.
-
 };
 
 guyPosition = (origin) => {
+    clearTimeout(t); //...clear the timeout on bothIrides...
+    let animationRate = (Math.random() * .4) + .1;
     if (origin === 1) { //If origin is on the left side...
-        clearTimeout(t); //...clear the timeout on bothIrides...
         animationSwitch1 = (animationSwitch1 + 1) % 2; //...toggle the animation switch...
         var left = 44; //...set the left to 44px...
         var rotateZ = Math.floor(Math.random() * 91) + 45; //...set Z rotation to random value between 45 and 135 degrees...
@@ -54,11 +68,10 @@ guyPosition = (origin) => {
         eyeCoefficient = Math.ceil(((rotateZ / 1.7) - 18.47)); //...set eyeCoefficient as a function of z rotation bewteen 8 and 61.
         theGuy.style.top = `${top}%`; //Set the top position as %.
         theGuy.style.left = `${left}px`; //Set the left position in px.
-        theGuy.style.animation = `fromLeft-${animationSwitch1} .1s ease`; //Guy pops up switching between identical keyframe animations to circumvent inability to immediately reuse keyframe animations without resetting.
+        theGuy.style.animation = `fromLeft-${animationSwitch1} ${animationRate}s ease`; //Guy pops up switching between identical keyframe animations to circumvent inability to immediately reuse keyframe animations without resetting.
         irisCount = 0; //Set irisCount to 0 so guy looks at resume instead of you at each animation start.
     }
     if (origin === 2) { //If origin is at the top...
-        clearTimeout(t); //...clear the timeout on bothIrides...
         animationSwitch2 = (animationSwitch2 + 1) % 2; //...toggle the animation switch...
         var left = Math.floor(Math.random() * 61) + 20; //...set left position to random value between 20 and 80%...
         var rotateZ = Math.floor(Math.random() * 91) + 135; //...set Z rotation to random value between 135 and 225 degrees...
@@ -67,14 +80,13 @@ guyPosition = (origin) => {
         eyeCoefficient = Math.ceil((((rotateZ - 90) / 1.7) - 18.47)); //...set eyeCoefficient as a function of z rotation bewteen 8 and 61.
         theGuy.style.top = `${top}px`; //Set the top position in px.
         theGuy.style.left = `${left}%`; //Set the left position as %.
-        theGuy.style.animation = `fromTop-${animationSwitch2} .1s ease`; //Guy pops up switching between identical keyframe animations to circumvent inability to immediately reuse keyframe animations without resetting.
+        theGuy.style.animation = `fromTop-${animationSwitch2} ${animationRate}s ease`; //Guy pops up switching between identical keyframe animations to circumvent inability to immediately reuse keyframe animations without resetting.
         irisCount = 0; //Set irisCount to 0 so guy looks at resume instead of you at each animation start.
     }
     theGuy.style.overflow = overflow; //Set overflow to hidden.
     theGuy.style.transform = `rotateZ(${rotateZ}deg)`; //Set Z rotation.
     bothIrides();
 }
-
 
 (controller = () => {
     let rate = (Math.random() * 4000) + 2000;

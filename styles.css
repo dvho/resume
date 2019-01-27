@@ -47,6 +47,35 @@
     border-radius: 42px 42px 35px 35px;
     z-index: 20;
 }
+.eyebrow {
+    position: absolute;
+    top: 20px;
+    height: 20px;
+    width: 26px;
+    border-radius: 20px;
+    border-top:  8px solid #5c2523;
+    transform-origin: top;
+}
+.left-eyebrow-down {
+    left: 58px;
+    transform: rotateX(60deg) translateX(2px) rotateZ(14deg);
+    transition: transform .35s ease;
+}
+.right-eyebrow-down {
+    left: 12px;
+    transform: rotateX(60deg) translateX(-2px) rotateZ(-14deg);
+    transition: transform .35s ease;
+}
+.left-eyebrow-up {
+    left: 58px;
+    transform: translateY(-1px) translateX(4px) rotateX(60deg) rotateZ(28deg);
+    transition: transform .02s linear;
+}
+.right-eyebrow-up {
+    left: 12px;
+    transform: translateY(-1px) translateX(-4px) rotateX(60deg) rotateZ(-28deg);
+    transition: transform .02s linear;
+}
 .nose {
     position: absolute;
     top: 48px;

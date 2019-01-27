@@ -4,20 +4,22 @@ const rightIris = document.getElementById('right-iris');
 const leftEye = document.getElementById('left-eye');
 const rightEye = document.getElementById('right-eye');
 const explodeGuy = document.getElementById('explosion');
+const leftEyebrow = document.getElementById('left-eyebrow');
+const rightEyebrow = document.getElementById('right-eyebrow');
 let animationSwitch1 = 1; //Initialize animationSwitch1
 let animationSwitch2 = 1; //Initialize animationSwitch2
 let irisCount = 1; //Initialize irisCount
 let eyeCoefficient = 1; //Initialize eyeCoefficient
 let t = 0; //Initialize t for bothIrides clearTimeout
-let x = 0;
-let y = 0;
+let x = 0; //Initialize x for coord function
+let y = 0; //Initialize y for coord function
 
-coord = (e) => {
+coord = (e) => { //X and Y coordinates are logged.
     x = e.clientX;
     y = e.clientY;
 };
 
-poof = () => {
+poof = () => { //Guy disappears and is replaced with an explosion.
     theGuy.style.visibility = `hidden`;
     leftEye.classList = ``;
     rightEye.classList = ``;
@@ -28,14 +30,21 @@ poof = () => {
     explodeGuy.style.animation = `explode .085s linear`;
 }
 
-document.addEventListener(`click`, coord);
-document.addEventListener(`mousemove`, coord);
-theGuy.addEventListener(`click`, poof);
+document.addEventListener(`click`, coord); //Clicking (tapping) anywhere in the doc calls the coordinates function, which logs clientX and clientY.
+document.addEventListener(`mousemove`, coord); //Moving the mouse anywhere in the doc calls the coordinates function, which logs clientX and clientY.
+theGuy.addEventListener(`click`, poof); //Clicking (tapping) on the guy calls the poof function, which replaces him with an explosion.
+
+(eyebrows = () => {
+    let eyebrowRate = ((Math.random() * 6000) + 2000); //Eyebrow rate is randomly between 2000ms inclusive and 8000ms exclusive.
+    leftEyebrow.classList.toggle('left-eyebrow-up'); //Upon self invoked function calls at a rate of eyebrowRate, eyebrows function toggles between up and down classes for both left and right eyebrows, respectively, transitioning according to values set in stylesheet.
+    rightEyebrow.classList.toggle('right-eyebrow-up');
+    setTimeout(eyebrows, eyebrowRate);
+})();
 
 (blinking = () => {
-    let blinkRate = (Math.random() * 2000) + 200;
-    let timeClosed = (Math.random() * 120) + 20;
-    leftEye.style.visibility = `hidden`;
+    let blinkRate = (Math.random() * 2000) + 200; //Blink rate is randomly between 200ms inclusive and 2200ms exclusive.
+    let timeClosed = (Math.random() * 120) + 20; //Duration of eyes being closed is randomly between 20ms inclusive and 140ms exclusive.
+    leftEye.style.visibility = `hidden`; //Upon self invoked function calls at a rate of blinkRate, blinking function sets both eyes to hidden until the anonymous visiblity function is called by a setTimeout at the rate of timeClosed.
     rightEye.style.visibility = `hidden`;
     setTimeout(() => {
         leftEye.style.visibility = `visible`;
@@ -90,9 +99,9 @@ guyPosition = (origin) => {
     bothIrides();
 }
 
-(controller = () => {
-    let rate = (Math.random() * 4000) + 2000;
-    let origin = Math.ceil(Math.random() * 2);
+(controller = () => { //Controller self invokes at controllerRate.
+    let controllerRate = (Math.random() * 4000) + 2000; //controllerRate is between 2000ms inclusive and 6000ms exclusive.
+    let origin = Math.ceil(Math.random() * 2); //Side of entry for guy is randomly either from the left of the page or from the top of the page.
     guyPosition(origin);
-    setTimeout(controller, rate);
+    setTimeout(controller, controllerRate);
 })();

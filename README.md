@@ -14,7 +14,7 @@ Reviewing resumes can be a tedious and often onerous task. I coded an assistant 
 _________________________
 
 #### Notes
-Tap/click on him if you want him to go away (burst into vapor).
+Tap/click on him if you want him to go away (i.e. burst into vapor).
 _________________________
 
 #### License

@@ -3,6 +3,8 @@ const leftIris = document.getElementById('left-iris');
 const rightIris = document.getElementById('right-iris');
 const leftEye = document.getElementById('left-eye');
 const rightEye = document.getElementById('right-eye');
+const leftEyeClosed = document.getElementById('left-eye-closed');
+const rightEyeClosed = document.getElementById('right-eye-closed');
 const explodeGuy = document.getElementById('explosion');
 const leftEyebrow = document.getElementById('left-eyebrow');
 const rightEyebrow = document.getElementById('right-eyebrow');
@@ -46,9 +48,13 @@ theGuy.addEventListener(`click`, poof); //Clicking (tapping) on the guy calls th
     let timeClosed = (Math.random() * 120) + 20; //Duration of eyes being closed is randomly between 20ms inclusive and 140ms exclusive.
     leftEye.style.visibility = `hidden`; //Upon self invoked function calls at a rate of blinkRate, blinking function sets both eyes to hidden until the anonymous visiblity function is called by a setTimeout at the rate of timeClosed.
     rightEye.style.visibility = `hidden`;
+    leftEyeClosed.style.visibility = `visible`; //Theoretically, hiding eyes should reveal closed eyes, but Safari mobile has a difficult time recognizing the respective z-indices as declared in the stylesheet, they're when eyes are hidden and hidden when eyes are visible as a precautionary measure.
+    rightEyeClosed.style.visibility = `visible`;
     setTimeout(() => {
         leftEye.style.visibility = `visible`;
         rightEye.style.visibility = `visible`;
+        leftEyeClosed.style.visibility = `hidden`;
+        rightEyeClosed.style.visibility = `hidden`;
     }, timeClosed);
     setTimeout(blinking, blinkRate);
 })();

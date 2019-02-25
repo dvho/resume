@@ -27,6 +27,8 @@ poof = () => { //Guy disappears and is replaced with an explosion.
     rightEye.classList = ``;
     leftIris.style.visibility = `hidden`;
     rightIris.style.visibility = `hidden`;
+    leftEyeClosed.style.opacity = '0';
+    rightEyeClosed.style.opacity = '0';
     explodeGuy.style.left = `${x - 100}px`;
     explodeGuy.style.top = `${y -100}px`;
     explodeGuy.style.animation = `explode .085s linear`;

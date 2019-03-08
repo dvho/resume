@@ -59,22 +59,22 @@
 .left-eyebrow-down {
     left: 58px;
     transform: rotateX(60deg) translateX(2px) rotateZ(14deg);
-    transition: transform .35s ease;
+    transition: transform .30s ease;
 }
 .right-eyebrow-down {
     left: 12px;
     transform: rotateX(60deg) translateX(-2px) rotateZ(-14deg);
-    transition: transform .35s ease;
+    transition: transform .24s ease;
 }
 .left-eyebrow-up {
     left: 58px;
-    transform: translateY(-1px) translateX(4px) rotateX(60deg) rotateZ(28deg);
-    transition: transform .02s linear;
+    transform: translateY(-4px) translateX(7px) rotateX(60deg) rotateZ(36deg);
+    transition: transform .06s linear;
 }
 .right-eyebrow-up {
     left: 12px;
-    transform: translateY(-1px) translateX(-4px) rotateX(60deg) rotateZ(-28deg);
-    transition: transform .02s linear;
+    transform: translateY(-4px) translateX(-7px) rotateX(60deg) rotateZ(-36deg);
+    transition: transform .06s linear;
 }
 .nose {
     position: absolute;

@@ -1,5 +1,5 @@
 # Resume
-_Resume_ is a PDF delineating my skills and the responsibilities I've enjoyed in life so far with a bonus widget assistant to help you evaluate my trajectory.
+_Resume_ is a PDF delineating my skills and the responsibilities I've enjoyed in life so far with an animated widget assistant to help you evaluate my trajectory.
 
 _________________________
 

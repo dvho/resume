@@ -1,11 +1,12 @@
 # Resume
-_Resume_ is a PDF delineating my skills and the responsibilities I've enjoyed in life so far with an animated widget assistant to help you evaluate my trajectory.
+_Resume_ is a PDF you can download which delineates my skills and the responsibilities I've enjoyed in life so far. I also coded an animated widget assistant to help you evaluate my trajectory.
 
 _________________________
 
 #### Features
 - All original fully autonomous randomly self-animating widget
 - Pure code (no image files)
+- Pure vanilla JavaScript
 - No frameworks/libraries
 _________________________
 

@@ -3,7 +3,7 @@ body {
     height: 100vh;
 }
 
-.resume { /* What ended up working insofar as pdf format was to use the embed tag (rather than W3C preferred iframe, et al) and change paper size in Microsoft Word to 8.5 inches x XX inches such that the entire docx could fit in a single page, then save as a pdf, otherwise the file would have automatically been truncated after one page regardless of how the overflow props were set. */
+.resume { /* What ended up working insofar as pdf format was to use the embed tag (rather than W3C preferred iframe, et al) and change paper size in Microsoft Word to 8.5 inches x XX inches such that the entire docx could fit in a single page, then save as a pdf, otherwise the file would have automatically been truncated after one page regardless of how the overflow props were set. Following that, the width/height ratio of the resume class simply needed to responsively match that of the single page pdf. */
     width: 100%;
     height: calc(100vw * 2.1176);
 }

@@ -1,9 +1,11 @@
 body {
     margin: 0;
-    height: 100vh
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .resume {
+    position: absolute;
     width: 100%;
     height: 100%;
     overflow-y: scroll;

@@ -1,5 +1,5 @@
 # Resume
-_Resume_ is not just any resume PDF. I also coded an animated widget assistant to help you evaluate my career trajectory. Read along with him or tap him to make him disappear. You may also download the PDF, which delineates my skills and the responsibilities I've enjoyed in life so far.
+_Resume_ is not just a resume. I coded an animated widget assistant to help you evaluate my career trajectory. Read along with him or tap him to make him disappear. You may also download the pdf, which delineates my skills and the responsibilities I've enjoyed in life so far.
 
 _________________________
 
